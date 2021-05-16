@@ -18,7 +18,7 @@ public class SymbolController {
     this.symbolService = symbolService;
   }
 
-  @RequestMapping(value = "/get")
+  @RequestMapping(value = "/info")
   Symbol getByName(@RequestParam("symbol") String symbol, @RequestParam("series") String series) {
     return symbolService.getSymbol(symbol,series);
   }

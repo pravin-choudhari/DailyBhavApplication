@@ -24,7 +24,7 @@ dependencies {
 	}
 	compile group: 'it.unimi.dsi', name: 'fastutil', version: '8.2.1'
 	implementation group: 'io.springfox', name: 'springfox-boot-starter', version: '3.0.0'
-	implementation group: 'io.springfox', name: 'springfox-swagger2', version: '3.0.0'
+	//implementation group: 'io.springfox', name: 'springfox-swagger2', version: '3.0.0'
 	implementation group: 'io.springfox', name: 'springfox-swagger-ui', version: '3.0.0'
 }
 

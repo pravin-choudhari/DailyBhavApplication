@@ -22,13 +22,17 @@ public class WeeklyPriceData implements Persistable<Integer> {
   private Float closePrice;
   private Float prevClosePrice;
   private int highDays;
+  private Symbol symbol;
+  private LocalDate weekStartDate;
+  private LocalDate weekEndDate;
+
+
+
   @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
   @JoinColumns(
       value = {@JoinColumn(name = "series"), @JoinColumn(name = "symbol")},
       foreignKey = @ForeignKey(name = "symbolsWeekly")
   )
-  private Symbol symbol;
-  private LocalDate week;
 
   public Float getClosePrice() {
     return closePrice;
@@ -54,12 +58,12 @@ public class WeeklyPriceData implements Persistable<Integer> {
     this.highDays = highDays;
   }
 
-  public LocalDate getWeek() {
-    return week;
+  public LocalDate getWeekStartDate() {
+    return weekStartDate;
   }
 
-  public void setWeek(LocalDate week) {
-    this.week = week;
+  public void setWeekStartDate(LocalDate weekStartDate) {
+    this.weekStartDate = weekStartDate;
   }
 
   public Symbol getSymbol() {
@@ -68,6 +72,14 @@ public class WeeklyPriceData implements Persistable<Integer> {
 
   public void setSymbol(Symbol symbol) {
     this.symbol = symbol;
+  }
+
+  public LocalDate getWeekEndDate() {
+    return weekEndDate;
+  }
+
+  public void setWeekEndDate(LocalDate weekEndDate) {
+    this.weekEndDate = weekEndDate;
   }
 
   @Override
@@ -83,5 +95,4 @@ public class WeeklyPriceData implements Persistable<Integer> {
   public boolean isNew() {
     return true;
   }
-
 }
